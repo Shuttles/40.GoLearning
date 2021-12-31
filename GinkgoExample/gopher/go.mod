@@ -1,4 +1,4 @@
-module example.com/gopher
+module github.com/Shuttles/40.Golearning/GinkgoExample/gopher
 
 go 1.17
 
