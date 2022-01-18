@@ -19,6 +19,11 @@ func (fd FlashDisk) PlugIn() {
 	fmt.Println(fd.name, "连入电脑中。。。。")
 }
 
+// method not in one interface
+func (fd FlashDisk) hello() {
+	fmt.Println("Hello! I am a method not in one interface")
+}
+
 type Mouse struct {
 	name string
 }
@@ -39,4 +44,9 @@ func main() {
 	m := Mouse{"鼠标"}
 	fmt.Println(m.Name())
 	m.PlugIn()
+
+	// test
+	// proves that a interface variable can not call its method not defined in this interface
+	var usb USB = FlashDisk{"U盘"}
+	usb.hello()
 }
