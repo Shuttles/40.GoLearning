@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	switch x := 1; x {
+	switch x := 4; x {
 	case 1:
 		fmt.Println(1)
 		fallthrough
@@ -11,6 +11,10 @@ func main() {
 		fmt.Println(2)
 	case 3:
 		fmt.Println(3)
+	case 4:
+		fallthrough
+	default:
+		fmt.Println("I am default!!!")
 	}
 
 }
