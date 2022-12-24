@@ -17,13 +17,13 @@ type Pool struct {
 	capacity int
 
 	active chan struct{}
-	tasks chan Task
+	tasks  chan Task
 
 	quit chan struct{}
-	wg sync.WaitGroup
+	wg   sync.WaitGroup
 }
 
-var ErrWorkerPoolFreed =  errors.New("workerpool freed")
+var ErrWorkerPoolFreed = errors.New("workerpool freed")
 
 func New(capacity int) *Pool {
 	if capacity < 0 {
@@ -35,9 +35,9 @@ func New(capacity int) *Pool {
 
 	p := &Pool{
 		capacity: capacity,
-		active: make(chan struct{}, capacity),
-		tasks: make(chan Task),
-		quit: make(chan struct{}),
+		active:   make(chan struct{}, capacity),
+		tasks:    make(chan Task),
+		quit:     make(chan struct{}),
 	}
 
 	fmt.Printf("workerpool start\n")
